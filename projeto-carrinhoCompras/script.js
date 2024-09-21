@@ -62,10 +62,12 @@ function updateCart() {
     const totalPriceElement = document.getElementById('total-price');
     
     cartItemsContainer.innerHTML = '';
-    totalPrice = 0; // Reinicia o total
+    totalPrice = 0;
+    let totalItems = 0; // Adicione esta linha
 
     cart.forEach(item => {
-        totalPrice += item.price * item.quantity; // Calcula o total corretamente
+        totalPrice += item.price * item.quantity;
+        totalItems += item.quantity; // Some a quantidade de cada item
         cartItemsContainer.innerHTML += `
             <div class="cart-item">
                 <p>${item.name}</p>
@@ -79,8 +81,8 @@ function updateCart() {
         `;
     });
 
-    cartItemCount.innerText = `${cart.length} Items`;
-    totalPriceElement.innerText = totalPrice.toFixed(2); // Atualiza o total no carrinho
+    cartItemCount.innerText = `${totalItems} ${totalItems === 1 ? 'Item' : 'Itens'}`;
+    totalPriceElement.innerText = totalPrice.toFixed(2);
 }
 
 // Função para alterar a quantidade dos produtos no carrinho
