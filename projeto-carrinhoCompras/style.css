@@ -1,5 +1,7 @@
+@import url(https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap);
+
 body {
-    background: url(imagens/fundo.png) no-repeat center center fixed;
+    background: url(imagens/fundoClaro6.png) no-repeat center center fixed;
     font-family: Arial, sans-serif;
     background-size: cover;
     margin: 0;
@@ -15,6 +17,11 @@ header {
     align-items: center;
     justify-content: space-between; /* Organiza os itens: logo à esquerda, carrinho à direita */
     position: relative;
+}
+
+.banner img {
+    width: 100%;
+    border-radius: 15px;
 }
 
 .logo img {
@@ -55,12 +62,13 @@ main {
 }
 
 .category {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .category h2 {
     color: #000000;
-    font-size: 30px;
+    font-size: 50px;
+    font-family: "Mouse Memoirs", sans-serif;
 }
 
 .item {
@@ -78,6 +86,14 @@ main {
 .item img {
     width: 100px;
     height: 100px;
+}
+
+.preco {
+    font-size: 30px;
+}
+
+small {
+    font-size: 20px;
 }
 
 .quantity-control {
@@ -107,8 +123,94 @@ main {
     border: none;
     margin-top: 10px;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .buy-btn.clicked {
     background-color: green;
+    transition: background-color 0.3s;
+}
+
+/* Carrinho lateral */
+.cart-sidebar {
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: #003366;
+    color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.cart-sidebar .cart-header {
+    padding: 10px;
+    text-align: center;
+}
+
+.cart-sidebar .cart-items {
+    padding: 10px;
+}
+
+.cart-sidebar .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-sidebar .cart-total {
+    padding: 10px;
+    background-color: #004080;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.cart-sidebar .checkout-btn {
+    background-color: #ff5733;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.close-cart {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+#cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+
+.cart-item input {
+    width: 50px;
+    text-align: center;
+}
+
+.cart-item button {
+    background-color: #003366;
+    color: white;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
 }
