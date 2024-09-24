@@ -1,4 +1,4 @@
-// Função para aumentar a quantidade
+// Função para aumentar a quantidade 
 function increaseQuantity(button) {
     const input = button.previousElementSibling;
     let quantity = parseInt(input.value);
@@ -32,6 +32,7 @@ function toggleCart() {
         cartSidebar.style.width = '0';
     } else {
         cartSidebar.style.width = '300px';
+        console.log("Carrinho aberto");
     }
 }
 
@@ -63,11 +64,11 @@ function updateCart() {
     
     cartItemsContainer.innerHTML = '';
     totalPrice = 0;
-    let totalItems = 0; // Adicione esta linha
+    let totalItems = 0;
 
     cart.forEach(item => {
         totalPrice += item.price * item.quantity;
-        totalItems += item.quantity; // Some a quantidade de cada item
+        totalItems += item.quantity; // Soma a quantidade de cada item
         cartItemsContainer.innerHTML += `
             <div class="cart-item">
                 <p>${item.name}</p>
@@ -95,4 +96,20 @@ function changeQuantity(name, amount) {
         }
     }
     updateCart();
+}
+
+function finalizePurchase() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+
+    // Exibir alerta de pedido finalizado
+    alert("Pedido Finalizado!"); // Alerta antes de zerar o carrinho
+
+    // Exibir mensagem de pedido finalizado
+    cartItemsContainer.innerHTML = '<p>Pedido Finalizado!</p>';
+    totalPriceElement.innerText = '0.00'; // Zera o total
+
+    // Limpa o carrinho
+    cart = [];
+    updateCart(); // Atualiza o carrinho visualmente
 }
