@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -143,7 +143,7 @@
             </div>
             <div class="item">
                 <img src="imagens/lays.png" alt="Salgadinho 1">
-                <p>Lay`s</p>
+                <p>Lays</p>
                 <p class="preco">R$ 10,59</p>
                 <div class="quantity-control">
                     <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
@@ -242,14 +242,14 @@
         <div class="cart-header">
             <span class="close-cart" onclick="toggleCart()">X</span>
             <h2>Carrinho de Compras</h2>
-            <p id="cart-item-count">0 Items</p>
+            <p id="cart-item-count">0 Itens</p>
         </div>
         <div class="cart-items" id="cart-items">
             <!-- Os itens adicionados ao carrinho aparecerão aqui -->
         </div>
         <div class="cart-total">
             <h3>Total: R$ <span id="total-price">0.00</span></h3>
-            <button class="checkout-btn">Finalizar Pedido</button>
+            <button class="checkout-btn" onclick="finalizePurchase()">Finalizar Compra</button>
         </div>
     </div>
 
