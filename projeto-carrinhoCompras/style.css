@@ -165,10 +165,9 @@ small {
 .cart-sidebar .cart-total {
     padding: 10px;
     background-color: #004080;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     text-align: center;
+    position: relative; /* Muda para relative se precisar de ajustes de posicionamento */
 }
 
 .cart-sidebar .checkout-btn {
