@@ -1,0 +1,61 @@
+tela login e registro 
+
+<div id="authContainer" class="form-container">
+            <h1>Login</h1>
+            <form id="formLogin">
+                <input type="email" id="inputEmail" placeholder="E-mail" required>
+                <input type="password" id="inputSenha" placeholder="Senha" required>
+                <button type="submit">Login</button>
+            </form>
+            <button id="botaoCadastro">Cadastrar Novo Usuário</button>
+        </div>
+
+
+-------------------------------------
+
+
+ // Configurações do Firebase
+        const configuracaoFirebase = {
+            apiKey: "-",
+            authDomain: "-",
+            projectId: "-",
+            storageBucket: "-m",
+            messagingSenderId: "-",
+            appId: "-"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(configuracaoFirebase);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        let usuarioAtual = null;
+
+        // Função de autenticação de usuários
+        document.getElementById('formLogin').addEventListener('submit', async function(evento) {
+            evento.preventDefault();
+            const email = document.getElementById('inputEmail').value;
+            const senha = document.getElementById('inputSenha').value;
+            try {
+                await signInWithEmailAndPassword(auth, email, senha);
+                alert('Login bem-sucedido!');
+            } catch (erro) {
+                console.error('Erro ao fazer login:', erro);
+                alert('Erro ao fazer login. Verifique suas credenciais.');
+            }
+        });
+
+        // Função de cadastro de usuários
+        document.getElementById('botaoCadastro').addEventListener('click', async function() {
+            const email = prompt('Digite o e-mail para cadastro:');
+            const senha = prompt('Digite a senha para cadastro:');
+            if (email && senha) {
+                try {
+                    await createUserWithEmailAndPassword(auth, email, senha);
+                    alert('Usuário cadastrado com sucesso!');
+                } catch (erro) {
+                    console.error('Erro ao cadastrar usuário:', erro);
+                    alert('Erro ao cadastrar usuário.');
+                }
+            }
+        });
